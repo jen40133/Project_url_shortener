@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Zkracovač{% endblock title %}
+
+{% block obsah %}
+<div class="center_page">
+
+  <h1>Zkracovač url adres</h1>
+
+  <h2>Zadej adresu pro zkrácení: </h2>
+
+  <form method="post" class="form_vzkazy">
+    <textarea name="body" rows="10" cols="150" class="paste_url"> </textarea>
+    <p>
+      <button type="submit">Odeslat</button>
+      <button type="reset">Vymazat</button>
+    </p>
+  </form>
+  
+  
+    <h2>Původní adresa byla zkrácena na: </h2>
+    <h3>{{shortened_url}}</h3>
+
+  <form action="{{shortened_url}}" method="get" class="form_redirect"> 
+    <button type="submit">Přesměrovat</button>
+  </form>
+  
+</div>
+
+{% endblock obsah %}

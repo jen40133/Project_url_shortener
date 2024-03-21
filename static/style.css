@@ -1,0 +1,214 @@
+/* Reset */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+h1 {
+    font-size: 85px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    margin: 75px;
+    text-align: center;
+    border-radius: 5px;
+    border: 5px solid blue;
+    padding: 15px;
+}
+
+h2 {
+    font-size: 40px;
+    font-family: Arial, sans-serif;
+    margin-left: 125px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight:bolder;
+}
+
+h3 {
+    font-size: 30px;
+    font-family: Arial, sans-serif;
+    margin-left: 200px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight:normal;
+}
+
+/* Div middle page */
+.center_page {
+    position: absolute;
+    top: 309px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 65%; 
+    bottom: 0; 
+    background-color: white;
+    border: 1px solid rgb(160, 154, 154);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    height: 100vh;
+}
+
+/* Header */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; 
+}
+
+.logo {
+    vertical-align: middle;
+}
+
+.logo img {
+    width: 150px;
+    height: auto;
+    margin-right: 10px;
+    border-right: 5px solid #fff; 
+    padding-right: 20px; 
+}
+
+.logo span {
+    font-size: 120px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    margin-left: 50px;
+    
+}
+
+/* Menu přihlášení */
+.user-menu {
+    background-color: #ddd;
+    color: #333;
+    font-size: 20px;
+    padding: 5px 10px;
+    border-radius: 8px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.user-menu a {
+    color: darkgoldenrod;
+    font-size: 21px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+/* Navigační menu */
+nav {
+    background-color: #ddd;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0px 20px 0px;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+nav a {
+    font-size: 35px;
+    text-decoration: none;
+    color: #333;
+    padding: 25px 250px 25px 250px ;
+    border-radius: 20px;
+    background-color: #eee;
+    font-weight: bolder;
+}
+
+/* Message */
+.message {
+    width: 45%;
+    border: 2px solid #bb8800;
+    color: #333;
+    margin: 20px auto;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.success {
+    border-color: green;
+}
+
+.error {
+    border-color: red;
+}
+
+/* Convertor */
+.form_vzkazy {
+    text-align: center;
+}
+
+.form_vzkazy .paste_url {
+    margin: 20px 0px 20px;
+}
+
+.form_vzkazy button {
+    font-size: 30px;
+    margin: 20px 75px 20px 75px;
+    background-color: rgb(150, 150, 168);
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    border-radius: 25px;
+    padding: 20px 100px 20px 100px;
+
+}
+
+.form_redirect {
+    text-align: center;
+}
+
+.form_redirect button {
+    font-size: 30px;
+    margin: 20px 75px 20px 75px;
+    background-color: rgb(150, 150, 168);
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    border-radius: 25px;
+    padding: 20px 100px 20px 100px;
+}
+
+/* History */
+.messageboard {
+    background-color: lightgray;
+    margin: 10px 20px;
+    padding: 10px;
+    border-radius: 7px;
+    border: 1px solid black;
+}
+
+.message_url {
+    margin-left: 15px;
+}
+
+.message_url_short {
+    margin-left: 15px;
+}
+
+.messageboard .form {
+    float: right;
+}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock title %}
+{% block obsah %}
+
+<div class="center_page">
+
+    <h1>Přihlášení uživatel</h1>
+
+    <form method="POST">
+
+    {% for category, message in get_flashed_messages(with_categories=True)%}
+    <p class="message {{category}}">{{ message }}</p>
+    {% endfor %}
+
+    <table>
+        <tr>
+            <td>Jmeno:</td>
+            <td><input type="text" name="jmeno"></td>
+        </tr>
+        <tr>
+            <td>Heslo:</td>
+            <td><input type="password" name="heslo"></td>
+
+        </tr>
+        <tr>
+            <td></td>
+            <td><button>Přihlásit</button></td>
+        </tr>
+    </table>
+
+    </form>
+
+</div>
+{% endblock obsah %}

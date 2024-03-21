@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Uložené adresy{% endblock title %}
+
+{% block obsah %}
+
+  <h1>Seznam dříve zkrácených adres</h1>
+
+  {% for user_login, url, url_short, datetime, id in response %}
+
+  <div class="messageboard">
+
+      <form action="{{url_for('history_del')}}" method="post">
+        <input type="hidden" name="id" value="{{id}}"> 
+        <button type="submit">Vymazat</button>
+      </form>
+
+      <form action="{{url}}" method="get"> 
+        <button type="submit">Přesměrovat</button>
+      </form>
+      
+
+    <p class="message_login"> <strong>{{user_login}}</strong> ({{d.fromisoformat(datetime).strftime('%d.%m.%Y %H:%M')}}):</p>
+    <p class="message_url"><strong>Původní adresa:</strong> {{url}}</p>
+    <p class="message_url_short"><strong>Zkrácená adresa:</strong> {{request.url_root + url_short}}</p>
+
+  </div>
+  
+</div>
+{% endfor %}
+
+{% endblock obsah %}
