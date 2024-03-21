@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block obsah %}
+
+<h1>Upload file</h1>
+
+<form method="post" enctype="multipart/form-data" class="form_upload">
+  Titulek: <input type="text" name="title">
+  <input type="file" name="file">
+  <input type="submit" value="Upload" >
+</form>
+
+{% endblock obsah %}

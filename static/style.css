@@ -20,18 +20,18 @@ body {
 }
 
 h1 {
-    font-size: 85px;
+    font-size: 65px;
     font-family: Arial, sans-serif;
     font-weight: bold;
     margin: 75px;
     text-align: center;
     border-radius: 5px;
-    border: 5px solid blue;
+    border: 5px solid darkgoldenrod;
     padding: 15px;
 }
 
 h2 {
-    font-size: 40px;
+    font-size: 30px;
     font-family: Arial, sans-serif;
     margin-left: 125px;
     margin-top: 20px;
@@ -40,7 +40,7 @@ h2 {
 }
 
 h3 {
-    font-size: 30px;
+    font-size: 20px;
     font-family: Arial, sans-serif;
     margin-left: 200px;
     margin-top: 20px;
@@ -51,7 +51,7 @@ h3 {
 /* Div middle page */
 .center_page {
     position: absolute;
-    top: 309px;
+    top: 291px;
     left: 50%;
     transform: translateX(-50%);
     width: 65%; 
@@ -86,7 +86,7 @@ header {
 }
 
 .logo span {
-    font-size: 120px;
+    font-size: 100px;
     font-family: Arial, sans-serif;
     font-weight: bold;
     margin-left: 50px;
@@ -130,10 +130,10 @@ nav ul {
 }
 
 nav a {
-    font-size: 35px;
+    font-size: 25px;
     text-decoration: none;
     color: #333;
-    padding: 25px 250px 25px 250px ;
+    padding: 20px 150px 20px 150px ;
     border-radius: 20px;
     background-color: #eee;
     font-weight: bolder;
@@ -170,11 +170,11 @@ nav a {
 .form_vzkazy button {
     font-size: 30px;
     margin: 20px 75px 20px 75px;
-    background-color: rgb(150, 150, 168);
+    background-color: rgb(200, 170, 100);
     font-family: Arial, sans-serif;
     font-weight: bold;
     border-radius: 25px;
-    padding: 20px 100px 20px 100px;
+    padding: 15px 80px 15px 80px;
 
 }
 
@@ -185,11 +185,11 @@ nav a {
 .form_redirect button {
     font-size: 30px;
     margin: 20px 75px 20px 75px;
-    background-color: rgb(150, 150, 168);
+    background-color: rgb(200, 170, 100);
     font-family: Arial, sans-serif;
     font-weight: bold;
     border-radius: 25px;
-    padding: 20px 100px 20px 100px;
+    padding: 15px 80px 15px 80px;
 }
 
 /* History */
@@ -211,4 +211,9 @@ nav a {
 
 .messageboard .form {
     float: right;
+}
+
+/* Upload */
+.form_upload {
+    margin: 20px 0px 20px 50px;
 }

@@ -2,7 +2,9 @@ from flask import Flask, render_template, request, redirect, url_for, session, f
 import functools
 from sqlitewrap import SQLite
 from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.utils import secure_filename
 from sqlite3 import IntegrityError
+import os
 import random
 import string
 import datetime
@@ -72,8 +74,7 @@ def convertor_post():
 
             return render_template("convertor.html", shortened_url = shortened_url)
             
-    return redirect(url_for("convertor")) 
-        
+    return redirect(url_for("convertor"))
     
 
 
@@ -187,3 +188,36 @@ def register_post():
          flash(f"Uživatel `{jmeno}` již existuje!", "error")
 
     return redirect(url_for("register"))
+
+#upload
+UPLOAD_FOLDER = os.path.dirname(__file__)+'/upload/'
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif', 'webp'}
+
+@app.route('/upload/', methods=['GET'])
+def upload():
+    return render_template('upload.html')
+
+
+@app.route('/upload/', methods=['POST'])
+def upload_post():
+
+    if 'file' not in request.files:
+        flash('No file part')
+        return redirect(request.url)
+    
+    file = request.files['file']
+
+    if file.filename == '':
+        flash('No selected file')
+        return redirect(request.url)
+    
+    if file and allowed_file(file.filename):
+        filename = secure_filename(file.filename)
+        file.save(os.path.join(UPLOAD_FOLDER, filename))
+        flash('File saved')
+        return redirect(url_for('upload'))
+
+def allowed_file(filename):
+    "vrátí True, pokud má soubor správnou příponu"
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
