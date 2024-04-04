@@ -2,6 +2,10 @@
 
 {% block obsah %}
 
+  {% for category, message in get_flashed_messages(with_categories=True)%}
+  <p class="message {{category}}">{{ message }}</p>
+  {% endfor %}
+
 <h1>Upload file</h1>
 
 <form method="post" enctype="multipart/form-data" class="form_upload">
@@ -9,5 +13,22 @@
   <input type="file" name="file">
   <input type="submit" value="Upload" >
 </form>
+
+<h2>Fotoalbum</h2>
+
+
+    
+    {% for file_name_origin, data, filetype in images %}
+    <div class="image_album">
+      <form action="{{url_for('history_del')}}" method="post">
+        <input type="hidden" name="id" value="{{id}}"> 
+        <button type="submit">Vymazat</button>
+
+        <p class="image_name"><strong>Název:</strong> {{file_name_origin}}</p>
+        <img src="data:{{filetype}};base64,{{data}}" alt="">
+      </form>
+    </div>
+    {% endfor %}
+  
 
 {% endblock obsah %}

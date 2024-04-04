@@ -159,15 +159,21 @@ nav a {
 }
 
 /* Convertor */
-.form_vzkazy {
+.form_url {
     text-align: center;
 }
 
-.form_vzkazy .paste_url {
+.form_url .paste_url {
     margin: 20px 0px 20px;
 }
 
-.form_vzkazy button {
+.form_url input {
+    margin: 20px 0px 20px;
+    width: 80%;
+    font-size: 20px;
+}
+
+.form_url button {
     font-size: 30px;
     margin: 20px 75px 20px 75px;
     background-color: rgb(200, 170, 100);
@@ -216,4 +222,27 @@ nav a {
 /* Upload */
 .form_upload {
     margin: 20px 0px 20px 50px;
+}
+
+/* History */
+.image_album {
+    background-color: lightgray;
+    margin: 10px 20px;
+    padding: 10px;
+    border-radius: 7px;
+    border: 1px solid black;
+}
+
+.image_photo {
+    margin-left: 15px;
+}
+
+.image_album image {
+    max-width: 70%;
+    max-height: 70%;
+}
+
+
+.messageboard .form {
+    float: right;
 }

@@ -8,6 +8,8 @@ import os
 import random
 import string
 import datetime
+import uuid
+import base64
 
 #Podstránky
 app = Flask(__name__)
@@ -195,14 +197,23 @@ ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif', 'webp'}
 
 @app.route('/upload/', methods=['GET'])
 def upload():
-    return render_template('upload.html')
+    with SQLite("data.sqlite") as cursor:
+            response = cursor.execute("SELECT file_name_origin, data FROM upload")
+            images = []
+            for file_name_origin, data in response.fetchall():
+                images.append([
+                        file_name_origin,
+                          base64.b64encode(data).decode('ascii'), 
+                        f"image/{os.path.splitext(file_name_origin)[-1][1:]}"
+                        ])                
+    return render_template('upload.html', images = images)
 
 
 @app.route('/upload/', methods=['POST'])
 def upload_post():
 
     if 'file' not in request.files:
-        flash('No file part')
+        flash('No file part', "error")
         return redirect(request.url)
     
     file = request.files['file']
@@ -212,10 +223,22 @@ def upload_post():
         return redirect(request.url)
     
     if file and allowed_file(file.filename):
-        filename = secure_filename(file.filename)
-        file.save(os.path.join(UPLOAD_FOLDER, filename))
-        flash('File saved')
+        file_name_origin = secure_filename(file.filename)
+        file_name_ondisk = uuid.uuid1().hex +"-"+ file_name_origin
+        file.save(os.path.join(UPLOAD_FOLDER, file_name_ondisk))
+        file.stream.seek(0)
+        with SQLite("data.sqlite") as cursor:
+            cursor.execute("""INSERT INTO upload 
+                    (file_name_origin, file_name_ondisk, data)
+                VALUES (?,?,?)
+                """
+            , (file_name_origin, file_name_ondisk, file.stream.read()))
+
+        flash('File saved', "success")
         return redirect(url_for('upload'))
+    
+    flash("File could not be uploaded", "error")
+    return redirect(url_for("upload"))
 
 def allowed_file(filename):
     "vrátí True, pokud má soubor správnou příponu"
